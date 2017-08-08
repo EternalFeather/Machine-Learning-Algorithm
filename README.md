@@ -68,23 +68,25 @@ $$
 
 - 以图中数据为例，要想知道信息增益，就必须先算出分类系的**熵值（Entropy）**。最终结果的label是yes或者no，所以统计数量之后共有9个yes和5个no。这时候**P（“yes”） = 9 / 14，P（“no”） = 5 / 14**。这里的熵值计算公式为：
 
-$$
+```
 Entropy(S) = {-(9 / 14) * log2(9 / 14) - (5 / 14) * log2(5 / 14)}
-$$
+```
 
 - 之后就可以计算每一个属性特征的信息增益（Gain）了。以wind属性为例，Wind为Weak的共有8条，其中yes的有6条，no的有2条；为Strong的共有6条，其中yes的有3条，no的也有3条。因此相应的熵值为：
 
-<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Entropy(Weak) = {-(6 / 8) * log2(6 / 8) - (2 / 8) * log2(2 / 8)}">
+```
+Entropy(Weak) = {-(6 / 8) * log2(6 / 8) - (2 / 8) * log2(2 / 8)}
+```
 
-$$
+```
 Entropy(Strong) = {-(3 / 6) * log2(3 / 6) - (3 / 6) * log2(3 / 6)}
-$$
+```
 
 - 现在就可以计算Wind属性的**信息增益**了：
 
-$$
+```
 Gain(Wind) = {Entropy(S) -(8 / 14) * Entropy(Weak) - (6 / 14) * Entropy(Strong)}
-$$
+```
 
 ## 支持向量机（Support vector machine,SVM）
 SVM是一种常用的机器学习分类方式。在这个算法过程中，我们将每一笔数据在**N维度的空间中用点表示（N为特征总数，Features）**，每个特征的值是一个坐标的值。
@@ -113,9 +115,9 @@ SVM是一种常用的机器学习分类方式。在这个算法过程中，我�
 
 贝叶斯定理提供了从P（c）、P（x）和P（x | c）计算后验概率P（c | x）的方法:
 
-$$
+```
 P(c | x) = {P(x | c) P(c) \over P(x)}
-$$
+```
 
 式子中的变量表示如下：
 - P（c | x）是已知预测变量（属性特征）的前提下，目标发生的后验概率。
@@ -139,41 +141,41 @@ $$
 
 **男子的后验概率**:
 
-$$
+```
 Posterior(male) = {P(male) P(height | male) P(weight | male) P(footsize | male) \over evidence}
-$$
+```
 
 **女子的后验概率**:
 
-$$
+```
 Posterior(female) = {P(female) P(height | female) P(weight | female) P(footsize | female) \over evidence}
-$$
+```
 
 证据因子（evidence）通常为常数，是用来对结果进行归一化的参数。
 
-$$
+```
 Evidence = {(Posterior(female) + Posterior(male)) * evidence}
-$$
+```
 
 - 因此我们可以计算出相应结果：
 
-$$
+```
 P(height | male) = {1 \over \sqrt{2\pi\sigma^2}}exp({-(6 - \mu^2) \over 2\sigma^2})
-$$
+```
 
-$$
+```
 P(weight | male) = ...
-$$
+```
 
 - 最后可以得出后验概率:
 
-$$
+```
 Posterior Numerator(male) = {6.1984e^{-09}}
-$$
+```
 
-$$
+```
 Posterior Numerator(female) = {5.3778e^{-04}}
-$$
+```
 
 - 因此女性的概率较大，我们估计结果为女性。
 
@@ -195,23 +197,23 @@ $$
 ### 欧式距离
 空间中点X = （X1，X2，X3，...，Xn）与点Y = （Y1，Y2，Y3，...，Yn）的欧氏距离为：
 
-$$
+```
 d(x, y) := {\sqrt{(X1 - Y1)^2 + (X2 - Y2)^2 + ... + (Xn - Yn)^2}}
-$$
+```
 
 ### 曼哈顿距离
 在平面上，坐标（X1，X2，...，Xn）的点和坐标（Y1，Y2，...，Yn）的点之间的曼哈顿距离为:
 
-$$
+```
 {|X1 - Y1| + |X2 - Y2| + ... + |Xn - Yn|}
-$$
+```
 
 ### 明氏距离
 两点 P = (X1，X2，...，Xn) 和 Q = （Y1，Y2，...，Yn）之间的明氏距离为:
 
-$$
+```
 {(|X1 - Y1|^p + |X2 - Y2|^p + ... + |Xn - Yn|^p)^{1 \over p}}
-$$
+```
 
 - 其中p取1时为曼哈顿距离，p取2时为欧氏距离。
 
@@ -271,5 +273,3 @@ Bossting能够对一份数据建立多个模型（如分类模型），通常这
 
 ### Gradient Boost
 与Adaboost不同的是，Gradient Boost在迭代的时候选择梯度下降的方向来保证最后的结果最好。损失函数（Loss function）用来描述模型的误差程度，如果模型没有Over fitting，那么loss的值越大则误差越高。如果我们的模型能够让损失函数值下降，说明它在不断改进，而最好的方式就是让函数在**梯度的方向**上改变。（类似神经网络的**Gradient Descend**）
-
-<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large {A \over A + B}" style="border:none;">
