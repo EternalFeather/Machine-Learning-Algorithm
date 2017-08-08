@@ -74,9 +74,7 @@ $$
 
 - 之后就可以计算每一个属性特征的信息增益（Gain）了。以wind属性为例，Wind为Weak的共有8条，其中yes的有6条，no的有2条；为Strong的共有6条，其中yes的有3条，no的也有3条。因此相应的熵值为：
 
-$$
-Entropy(Weak) = {-(6 / 8) * log2(6 / 8) - (2 / 8) * log2(2 / 8)}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Entropy(Weak) = {-(6 / 8) * log2(6 / 8) - (2 / 8) * log2(2 / 8)}">
 
 $$
 Entropy(Strong) = {-(3 / 6) * log2(3 / 6) - (3 / 6) * log2(3 / 6)}
