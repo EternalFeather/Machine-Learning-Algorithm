@@ -1,5 +1,4 @@
-十大機器學習算法
-===
+# 十大常见机器学习算法
 常用的机器学习算法，几乎可以用在所有的数据问题上：
 
 ## 线性回归（Linear Regression）
@@ -56,9 +55,9 @@ logit(p) = ln(p / (1 - p)) = b0 + b1X1 + b2X2 + ... + bnXn
 ![](https://i.imgur.com/ltVHIxt.png)
 
 图中的实际分配曲线（红线）和绝对平衡线（绿线）之间的**面积**为A，和绝对不平衡线（蓝线）之间的面积为B，则横纵坐标之间的比例的**Gini系数**为：
-$$
-{A \over A + B}
-$$
+
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large {A \over A + B}" style="border:none;">
+
 - A为零时，Gini系数为0，表示完全平衡。B为零时，Gini系数为1，表示完全不平衡。
 
 ### Information Gain & Entropy
@@ -68,25 +67,16 @@ $$
 
 - 以图中数据为例，要想知道信息增益，就必须先算出分类系的**熵值（Entropy）**。最终结果的label是yes或者no，所以统计数量之后共有9个yes和5个no。这时候**P（“yes”） = 9 / 14，P（“no”） = 5 / 14**。这里的熵值计算公式为：
 
-$$
-Entropy(S) = {-(9 / 14) * log2(9 / 14) - (5 / 14) * log2(5 / 14)}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Entropy(S) = {-(9 / 14) * log2(9 / 14) - (5 / 14) * log2(5 / 14)}" style="border:none;">
 
 - 之后就可以计算每一个属性特征的信息增益（Gain）了。以wind属性为例，Wind为Weak的共有8条，其中yes的有6条，no的有2条；为Strong的共有6条，其中yes的有3条，no的也有3条。因此相应的熵值为：
 
-$$
-Entropy(Weak) = {-(6 / 8) * log2(6 / 8) - (2 / 8) * log2(2 / 8)}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Entropy(Weak) = {-(6 / 8) * log2(6 / 8) - (2 / 8) * log2(2 / 8)}" style="border:none;">
 
-$$
-Entropy(Strong) = {-(3 / 6) * log2(3 / 6) - (3 / 6) * log2(3 / 6)}
-$$
-
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Entropy(Strong) = {-(3 / 6) * log2(3 / 6) - (3 / 6) * log2(3 / 6)}" style="border:none;">
 - 现在就可以计算Wind属性的**信息增益**了：
 
-$$
-Gain(Wind) = {Entropy(S) -(8 / 14) * Entropy(Weak) - (6 / 14) * Entropy(Strong)}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Gain(Wind) = {Entropy(S) -(8 / 14) * Entropy(Weak) - (6 / 14) * Entropy(Strong)}" style="border:none;">
 
 ## 支持向量机（Support vector machine,SVM）
 SVM是一种常用的机器学习分类方式。在这个算法过程中，我们将每一笔数据在**N维度的空间中用点表示（N为特征总数，Features）**，每个特征的值是一个坐标的值。
@@ -115,9 +105,7 @@ SVM是一种常用的机器学习分类方式。在这个算法过程中，我�
 
 贝叶斯定理提供了从P（c）、P（x）和P（x | c）计算后验概率P（c | x）的方法:
 
-$$
-P(c | x) = {P(x | c) P(c) \over P(x)}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large P(c | x) = {P(x | c) P(c) \over P(x)}" style="border:none;">
 
 式子中的变量表示如下：
 - P（c | x）是已知预测变量（属性特征）的前提下，目标发生的后验概率。
@@ -141,41 +129,27 @@ $$
 
 **男子的后验概率**:
 
-$$
-Posterior(male) = {P(male) P(height | male) P(weight | male) P(footsize | male) \over evidence}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Posterior(male) = {P(male) P(height | male) P(weight | male) P(footsize | male) \over evidence}" style="border:none;">
 
 **女子的后验概率**:
 
-$$
-Posterior(female) = {P(female) P(height | female) P(weight | female) P(footsize | female) \over evidence}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Posterior(female) = {P(female) P(height | female) P(weight | female) P(footsize | female) \over evidence}" style="border:none;">
 
 证据因子（evidence）通常为常数，是用来对结果进行归一化的参数。
 
-$$
-Evidence = {(Posterior(female) + Posterior(male)) * evidence}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Evidence = {(Posterior(female) + Posterior(male)) * evidence}" style="border:none;">
 
 - 因此我们可以计算出相应结果：
 
-$$
-P(height | male) = {1 \over \sqrt{2\pi\sigma^2}}exp({-(6 - \mu^2) \over 2\sigma^2})
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large P(height | male) = {1 \over \sqrt{2\pi\sigma^2}}exp({-(6 - \mu^2) \over 2\sigma^2})" style="border:none;">
 
-$$
-P(weight | male) = ...
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large P(weight | male) = ..." style="border:none;">
 
 - 最后可以得出后验概率:
 
-$$
-Posterior Numerator(male) = {6.1984e^{-09}}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Posterior Numerator(male) = {6.1984e^{-09}}" style="border:none;">
 
-$$
-Posterior Numerator(female) = {5.3778e^{-04}}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large Posterior Numerator(female) = {5.3778e^{-04}}" style="border:none;">
 
 - 因此女性的概率较大，我们估计结果为女性。
 
@@ -197,23 +171,17 @@ $$
 ### 欧式距离
 空间中点X = （X1，X2，X3，...，Xn）与点Y = （Y1，Y2，Y3，...，Yn）的欧氏距离为：
 
-$$
-d(x, y) := {\sqrt{(X1 - Y1)^2 + (X2 - Y2)^2 + ... + (Xn - Yn)^2}}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large d(x, y) := {\sqrt{(X1 - Y1)^2 + (X2 - Y2)^2 + ... + (Xn - Yn)^2}}" style="border:none;">
 
 ### 曼哈顿距离
 在平面上，坐标（X1，X2，...，Xn）的点和坐标（Y1，Y2，...，Yn）的点之间的曼哈顿距离为:
 
-$$
-{|X1 - Y1| + |X2 - Y2| + ... + |Xn - Yn|}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large {|X1 - Y1| + |X2 - Y2| + ... + |Xn - Yn|}" style="border:none;">
 
 ### 明氏距离
 两点 P = (X1，X2，...，Xn) 和 Q = （Y1，Y2，...，Yn）之间的明氏距离为:
 
-$$
-{(|X1 - Y1|^p + |X2 - Y2|^p + ... + |Xn - Yn|^p)^{1 \over p}}
-$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large {(|X1 - Y1|^p + |X2 - Y2|^p + ... + |Xn - Yn|^p)^{1 \over p}}" style="border:none;">
 
 - 其中p取1时为曼哈顿距离，p取2时为欧氏距离。
 
