@@ -8,7 +8,7 @@ x = iris.data
 y = iris.target
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.3)
 
-model = KMeans(n_clusters = 3, random_state = 0)
+model = KMeans(n_clusters = 2, random_state = 0)
 model.fit(x_train, y_train)
 # Unsupervise Learning
 # print(model.score(x_train, y_train))
