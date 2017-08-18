@@ -57,7 +57,9 @@ logit(p) = ln(p / (1 - p)) = b0 + b1X1 + b2X2 + ... + bnXn
 
 图中的实际分配曲线（红线）和绝对平衡线（绿线）之间的**面积**为A，和绝对不平衡线（蓝线）之间的面积为B，则横纵坐标之间的比例的**Gini系数**为：
 
-<img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large {A \over A + B}" style="border:none;">
+```
+A / (A + B)
+```
 
 - A为零时，Gini系数为0，表示完全平衡。B为零时，Gini系数为1，表示完全不平衡。
 
