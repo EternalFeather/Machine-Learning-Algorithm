@@ -275,3 +275,7 @@ Bossting能够对一份数据建立多个模型（如分类模型），通常这
 
 ### Gradient Boost
 与Adaboost不同的是，Gradient Boost在迭代的时候选择梯度下降的方向来保证最后的结果最好。损失函数（Loss function）用来描述模型的误差程度，如果模型没有Over fitting，那么loss的值越大则误差越高。如果我们的模型能够让损失函数值下降，说明它在不断改进，而最好的方式就是让函数在**梯度的方向**上改变。（类似神经网络的**Gradient Descend**）
+
+# Others
+
+想要了解更多关于机器学习和深度学习的内容，可以参考[Link](https://eternalfeather.github.io/2017/07/24/Machine-Learning-Tutorial/)
