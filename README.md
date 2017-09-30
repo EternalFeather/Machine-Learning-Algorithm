@@ -118,7 +118,7 @@ SVM是一种常用的机器学习分类方式。在这个算法过程中，我�
 贝叶斯定理提供了从P（c）、P（x）和P（x | c）计算后验概率P（c | x）的方法:
 
 ```
-P(c | x) = P(x | c) P(c) \over P(x)
+P(c | x) = P(x | c) P(c) / P(x)
 ```
 
 式子中的变量表示如下：
@@ -144,13 +144,13 @@ P(c | x) = P(x | c) P(c) \over P(x)
 **男子的后验概率**:
 
 ```
-Posterior(male) = P(male) P(height | male) P(weight | male) P(footsize | male) \over evidence
+Posterior(male) = P(male) P(height | male) P(weight | male) P(footsize | male) / evidence
 ```
 
 **女子的后验概率**:
 
 ```
-Posterior(female) = P(female) P(height | female) P(weight | female) P(footsize | female) \over evidence
+Posterior(female) = P(female) P(height | female) P(weight | female) P(footsize | female) / evidence
 ```
 
 证据因子（evidence）通常为常数，是用来对结果进行归一化的参数。
@@ -162,7 +162,7 @@ Evidence = (Posterior(female) + Posterior(male)) * evidence
 - 因此我们可以计算出相应结果：
 
 ```
-P(height | male) = {1 \over \sqrt{2\pi\sigma^2}}exp({-(6 - \mu^2) \over 2\sigma^2})
+P(height | male) = {1 / sqrt{2\pi\sigma^2}}exp({-(6 - \mu^2) / 2\sigma^2})
 ```
 
 ```
@@ -172,11 +172,11 @@ P(weight | male) = ...
 - 最后可以得出后验概率:
 
 ```
-Posterior Numerator(male) = {6.1984e^{-09}}
+Posterior Numerator(male) = 6.1984e^{-09}
 ```
 
 ```
-Posterior Numerator(female) = {5.3778e^{-04}}
+Posterior Numerator(female) = 5.3778e^{-04}
 ```
 
 - 因此女性的概率较大，我们估计结果为女性。
@@ -200,7 +200,7 @@ Posterior Numerator(female) = {5.3778e^{-04}}
 空间中点X = （X1，X2，X3，...，Xn）与点Y = （Y1，Y2，Y3，...，Yn）的欧氏距离为：
 
 ```
-d(x, y) := {\sqrt{(X1 - Y1)^2 + (X2 - Y2)^2 + ... + (Xn - Yn)^2}}
+d(x, y) := {sqrt{(X1 - Y1)^2 + (X2 - Y2)^2 + ... + (Xn - Yn)^2}}
 ```
 
 ### 曼哈顿距离
@@ -214,7 +214,7 @@ d(x, y) := {\sqrt{(X1 - Y1)^2 + (X2 - Y2)^2 + ... + (Xn - Yn)^2}}
 两点 P = (X1，X2，...，Xn) 和 Q = （Y1，Y2，...，Yn）之间的明氏距离为:
 
 ```
-{(|X1 - Y1|^p + |X2 - Y2|^p + ... + |Xn - Yn|^p)^{1 \over p}}
+{(|X1 - Y1|^p + |X2 - Y2|^p + ... + |Xn - Yn|^p)^{1 / p}}
 ```
 
 - 其中p取1时为曼哈顿距离，p取2时为欧氏距离。
