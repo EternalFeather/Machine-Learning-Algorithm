@@ -71,23 +71,23 @@ A / (A + B)
 - 以图中数据为例，要想知道信息增益，就必须先算出分类系的**熵值（Entropy）**。最终结果的label是yes或者no，所以统计数量之后共有9个yes和5个no。这时候**P（“yes”） = 9 / 14，P（“no”） = 5 / 14**。这里的熵值计算公式为：
 
 ```
-Entropy(S) = {-(9 / 14) * log2(9 / 14) - (5 / 14) * log2(5 / 14)}
+Entropy(S) = -(9 / 14) * log2(9 / 14) - (5 / 14) * log2(5 / 14)
 ```
 
 - 之后就可以计算每一个属性特征的信息增益（Gain）了。以wind属性为例，Wind为Weak的共有8条，其中yes的有6条，no的有2条；为Strong的共有6条，其中yes的有3条，no的也有3条。因此相应的熵值为：
 
 ```
-Entropy(Weak) = {-(6 / 8) * log2(6 / 8) - (2 / 8) * log2(2 / 8)}
+Entropy(Weak) = -(6 / 8) * log2(6 / 8) - (2 / 8) * log2(2 / 8)
 ```
 
 ```
-Entropy(Strong) = {-(3 / 6) * log2(3 / 6) - (3 / 6) * log2(3 / 6)}
+Entropy(Strong) = -(3 / 6) * log2(3 / 6) - (3 / 6) * log2(3 / 6)
 ```
 
 - 现在就可以计算Wind属性的**信息增益**了：
 
 ```
-Gain(Wind) = {Entropy(S) -(8 / 14) * Entropy(Weak) - (6 / 14) * Entropy(Strong)}
+Gain(Wind) = Entropy(S) -(8 / 14) * Entropy(Weak) - (6 / 14) * Entropy(Strong)
 ```
 
 ## 支持向量机（Support vector machine,SVM）
@@ -118,7 +118,7 @@ SVM是一种常用的机器学习分类方式。在这个算法过程中，我�
 贝叶斯定理提供了从P（c）、P（x）和P（x | c）计算后验概率P（c | x）的方法:
 
 ```
-P(c | x) = {P(x | c) P(c) \over P(x)}
+P(c | x) = P(x | c) P(c) \over P(x)
 ```
 
 式子中的变量表示如下：
@@ -144,19 +144,19 @@ P(c | x) = {P(x | c) P(c) \over P(x)}
 **男子的后验概率**:
 
 ```
-Posterior(male) = {P(male) P(height | male) P(weight | male) P(footsize | male) \over evidence}
+Posterior(male) = P(male) P(height | male) P(weight | male) P(footsize | male) \over evidence
 ```
 
 **女子的后验概率**:
 
 ```
-Posterior(female) = {P(female) P(height | female) P(weight | female) P(footsize | female) \over evidence}
+Posterior(female) = P(female) P(height | female) P(weight | female) P(footsize | female) \over evidence
 ```
 
 证据因子（evidence）通常为常数，是用来对结果进行归一化的参数。
 
 ```
-Evidence = {(Posterior(female) + Posterior(male)) * evidence}
+Evidence = (Posterior(female) + Posterior(male)) * evidence
 ```
 
 - 因此我们可以计算出相应结果：
